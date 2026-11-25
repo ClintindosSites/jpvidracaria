@@ -20,7 +20,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: company.website ? new URL(company.website) : undefined,
+  metadataBase: new URL(company.website || "https://jpvidracaria.com.br"),
 
   title: {
     default: "Vidraçaria em BH | JP Vidraçaria",
@@ -28,15 +28,20 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Vidraçaria em Belo Horizonte especializada em box para banheiro, espelhos sob medida, portas, janelas e esquadrias de alumínio. Solicite seu orçamento.",
+    "Vidraçaria em Belo Horizonte especializada em box para banheiro, espelhos sob medida, portas e janelas de vidro, esquadrias de alumínio e pergolados. Solicite seu orçamento.",
 
-  applicationName: "JP Vidraçaria",
+  applicationName: company.name,
 
-  authors: [{ name: "JP Vidraçaria" }],
+  authors: [{ name: company.name }],
+
+  creator: company.name,
+
+  publisher: company.name,
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -46,13 +51,35 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
+
     locale: "pt_BR",
-    siteName: "JP Vidraçaria",
+
+    siteName: company.name,
 
     title: "JP Vidraçaria | Vidraçaria em Belo Horizonte",
 
     description:
-      "Vidros, espelhos, box para banheiro e esquadrias de alumínio sob medida em BH.",
+      "Soluções em vidros e esquadrias de alumínio sob medida. Transforme seu ambiente com a JP Vidraçaria.",
+
+    images: [
+      {
+        url: "/images/opengraph-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "JP Vidraçaria - Vidros e esquadrias sob medida em Belo Horizonte",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "JP Vidraçaria | Vidraçaria em Belo Horizonte",
+
+    description:
+      "Soluções em vidros e esquadrias de alumínio sob medida em Belo Horizonte.",
+
+    images: ["/images/opengraph-image.webp"],
   },
 };
 
@@ -73,6 +100,7 @@ export default function RootLayout({
         <Header />
 
         <main id="main-content">{children}</main>
+
         <Footer />
       </body>
     </html>
