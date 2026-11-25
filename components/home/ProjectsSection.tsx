@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
+import { Suspense } from "react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import ProjectsCarousel from "@/components/projects/ProjectsCarousel";
+import ProjectsCarouselSkeleton from "../projects/ProjectsCarouselSkeleton";
 
 export default function ProjectsSection() {
   return (
@@ -26,7 +27,9 @@ export default function ProjectsSection() {
 
         {/* CARROSSEL */}
 
-        <ProjectsCarousel />
+        <Suspense fallback={<ProjectsCarouselSkeleton />}>
+          <ProjectsCarousel />
+        </Suspense>
 
         {/* CHAMADAS PARA AÇÃO */}
 

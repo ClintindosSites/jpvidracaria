@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
-
+import { Suspense } from "react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ReviewsCarousel from "@/components/reviews/ReviewsCarousel";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
@@ -24,7 +24,28 @@ export default function ReviewsSection() {
 
         {/* CARROSSEL */}
 
-        <ReviewsCarousel reviews={reviews} />
+        <Suspense
+          fallback={
+            <div
+              aria-hidden="true"
+              className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {[1, 2, 3].map(item => (
+                <div
+                  key={item}
+                  className={`
+            h-64 animate-pulse rounded-2xl
+            bg-slate-200
+            ${item === 2 ? "hidden sm:block" : ""}
+            ${item === 3 ? "hidden lg:block" : ""}
+          `}
+                />
+              ))}
+            </div>
+          }
+        >
+          <ReviewsCarousel reviews={reviews} />
+        </Suspense>
 
         {/* CHAMADAS PARA AÇÃO */}
 

@@ -6,7 +6,7 @@ import "./globals.css";
 import { company } from "@/data/company";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-
+import { Suspense } from "react";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -97,7 +97,9 @@ export default function RootLayout({
           antialiased
         `}
       >
-        <Header />
+        <Suspense fallback={<div className="h-20 w-full bg-primary" />}>
+          <Header />
+        </Suspense>
 
         <main id="main-content">{children}</main>
 
