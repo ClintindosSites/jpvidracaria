@@ -8,6 +8,7 @@ export const projects: Project[] = [
     image: "/images/projects/porta-01.webp",
     imageAlt: "Portas de correr em vidro com estrutura de alumínio preto",
     featured: true,
+    serviceSlug: "box-para-banheiro-bh",
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ export const projects: Project[] = [
     category: "Box",
     image: "/images/projects/box-01.webp",
     imageAlt: "Box de vidro temperado com acabamento preto",
+    serviceSlug: "box-para-banheiro-bh",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const projects: Project[] = [
     category: "Espelhos",
     image: "/images/projects/espelho-01.webp",
     imageAlt: "Espelho sob medida instalado em banheiro",
+    serviceSlug: "box-para-banheiro-bh",
   },
   {
     id: 4,
@@ -29,6 +32,7 @@ export const projects: Project[] = [
     category: "Pergolados",
     image: "/images/projects/pergolado-01.webp",
     imageAlt: "Pergolado de alumínio com cobertura de vidro",
+    serviceSlug: "box-para-banheiro-bh",
   },
   {
     id: 5,
@@ -36,6 +40,7 @@ export const projects: Project[] = [
     category: "Janelas",
     image: "/images/projects/janela-01.webp",
     imageAlt: "Janela de correr com estrutura de alumínio",
+    serviceSlug: "box-para-banheiro-bh",
   },
   {
     id: 6,
@@ -43,6 +48,7 @@ export const projects: Project[] = [
     category: "Esquadrias",
     image: "/images/projects/esquadria-01.webp",
     imageAlt: "Esquadrias de alumínio em residência",
+    serviceSlug: "box-para-banheiro-bh",
   },
 ];
 

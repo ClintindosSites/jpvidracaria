@@ -20,13 +20,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { projects } from "@/data/projects";
+import { projects as allProjects } from "@/data/projects";
 import type { Project } from "@/types/project";
 
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
-export default function ProjectsCarousel() {
+interface ProjectsCarouselProps {
+  projects?: Project[];
+}
+
+export default function ProjectsCarousel({
+  projects = allProjects,
+}: ProjectsCarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -108,8 +114,7 @@ export default function ProjectsCarousel() {
           <SwiperSlide key={project.id}>
             <ProjectCard
               project={project}
-              onClick={() => openProject(project)}
-              className="h-80 md:h-90"
+              onClick={() => setSelectedProject(project)}
             />
           </SwiperSlide>
         ))}

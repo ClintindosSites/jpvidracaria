@@ -5,4 +5,5 @@ export interface Project {
   image: string;
   imageAlt: string;
   featured?: boolean;
+  serviceSlug?: string;
 }

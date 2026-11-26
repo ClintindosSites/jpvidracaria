@@ -15,7 +15,7 @@ export default function FAQSection() {
         bg-slate-50 py-14 md:py-20
       "
     >
-      <FAQSchema items={homeFAQs} />
+      <FAQSchema faqs={homeFAQs} />
       <div
         className="
           container-site grid

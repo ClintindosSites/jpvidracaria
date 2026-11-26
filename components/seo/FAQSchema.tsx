@@ -1,21 +1,25 @@
 import type { FAQ } from "@/types/faq";
 
 interface FAQSchemaProps {
-  items: FAQ[];
+  faqs: FAQ[];
 }
 
-export default function FAQSchema({ items }: FAQSchemaProps) {
-  if (!items.length) return null;
+export default function FAQSchema({ faqs }: FAQSchemaProps) {
+  if (!faqs.length) {
+    return null;
+  }
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: items.map(item => ({
+
+    mainEntity: faqs.map(faq => ({
       "@type": "Question",
-      name: item.question,
+      name: faq.question,
+
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: faq.answer,
       },
     })),
   };
